@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import WebWorker from "./webworker";
-import myWorker from "./hello.worker";
+import Worker from "./hello.worker.js";
 
 class App extends Component<{}, { counter: number }> {
-  worker = WebWorker(myWorker);
+  worker = new (Worker as any)();
   constructor(props: any) {
     super(props);
     this.state = { counter: 0 };
