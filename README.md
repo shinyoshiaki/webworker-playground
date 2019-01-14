@@ -1,1 +1,1 @@
-https://shinyoshiaki.github.io/d3-playground/webworker-playground/build
+https://shinyoshiaki.github.io/webworker-playground/build
