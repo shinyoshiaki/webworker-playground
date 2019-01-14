@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import WebWorker from "./webworker";
-import myWorker from "./hello.worker.js";
+import myWorker from "./hello.worker";
 
 class App extends Component<{}, { counter: number }> {
   worker = WebWorker(myWorker);
