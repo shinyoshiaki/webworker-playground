@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Worker from "worker-loader!./hello.worker";
+import Statistics from "./components/statistics/index";
 
 class App extends Component<{}, { counter: number }> {
   worker = new (Worker as any)();
@@ -17,7 +18,12 @@ class App extends Component<{}, { counter: number }> {
   }
 
   render() {
-    return <div>worker{this.state.counter}</div>;
+    return (
+      <div>
+        worker{this.state.counter}
+        <Statistics input={[]} />
+      </div>
+    );
   }
 }
 

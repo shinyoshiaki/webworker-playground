@@ -4943,6 +4943,13 @@ csstype@^2.2.0:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.0.tgz#6cf7b2fa7fc32aab3d746802c244d4eda71371a2"
   integrity sha512-by8hi8BlLbowQq0qtkx54d9aN73R9oUW20HISpka5kmgsR9F7nnxgfsemuR2sdCKZh+CDNf5egW9UZMm4mgJRg==
 
+csv-loader@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/csv-loader/-/csv-loader-3.0.2.tgz#2af224a0582c47b761b4eee70576bd0e15af34b3"
+  integrity sha512-NSgkStzsNscNssEGjj4upYIm6AfPrJOCAAYoujjnszkAAboLZE7ChNOHO8YTlBLEMsQ6lizC9raIhfONneaA6g==
+  dependencies:
+    loader-utils "^1.1.0"
+
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -9844,6 +9851,11 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
   integrity sha512-lQe48YPsMJAig+yngZ87Lus+NF+3mtu7DVOBu6b/gHO1YpKwIj5AWjZ/TOS7i46HD/UixzWb1zeWDZfGZ3iYcg==
 
+papaparse@^4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-4.6.3.tgz#742e5eaaa97fa6c7e1358d2934d8f18f44aee781"
+  integrity sha512-LRq7BrHC2kHPBYSD50aKuw/B/dGcg29omyJbKWY3KsYUZU69RKwaBHu13jGmCYBtOc4odsLCrFyk6imfyNubJQ==
+
 parallel-transform@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.1.0.tgz#d410f065b05da23081fcd10f28854c29bda33b06"
@@ -11027,6 +11039,14 @@ raw-loader@^0.5.1:
   resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
   integrity sha1-DD0L6u2KAclm2Xh793goElKpeao=
 
+raw-loader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-1.0.0.tgz#3f9889e73dadbda9a424bce79809b4133ad46405"
+  integrity sha512-Uqy5AqELpytJTRxYT4fhltcKPj0TyaEpzJDcGz7DFJi+pQOOi3GjR/DOdxTkTsF+NzhnldIoG6TORaBlInUuqA==
+  dependencies:
+    loader-utils "^1.1.0"
+    schema-utils "^1.0.0"
+
 rc@^1.2.7:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
@@ -12069,6 +12089,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+
+simple-statistics@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/simple-statistics/-/simple-statistics-7.0.0.tgz#5f788219cb14069d8f275d7ebd0f5a23a8ef6d4d"
+  integrity sha512-A1Ibqq2DeTCeqZACGo0/DE+hAQkIKIVoh9VRUf57VBVui60hCsaqfsmiCnlebzekCvMBg46RMY3BeRYasPAnFQ==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

@@ -7,6 +7,19 @@ module.exports = (baseConfig, env, defaultConfig) => {
     loader: require.resolve("awesome-typescript-loader")
   });
 
+  defaultConfig.module.rules.push({
+    test: /\.worker\.(js|ts)$/,
+    use: {
+      loader: "worker-loader",
+      options: { inline: true, publicPath: "/scripts/workers/" }
+    }
+  });
+
+  defaultConfig.module.rules.push({
+    test: /\.txt$/,
+    use: "raw-loader"
+  });
+
   // addon-storysource使うときだけ
   defaultConfig.module.rules.push({
     test: /\.stories\.jsx?$/,

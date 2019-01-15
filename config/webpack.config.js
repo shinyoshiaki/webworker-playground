@@ -470,6 +470,10 @@ module.exports = function(webpackEnv) {
             loader: "worker-loader",
             options: { inline: true, publicPath: "/scripts/workers/" }
           }
+        },
+        {
+          test: /\.txt$/,
+          use: "raw-loader"
         }
       ]
     },
