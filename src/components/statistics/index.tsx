@@ -43,16 +43,6 @@ export default class Statistics extends React.Component<
     const xM = xMax + xMax / 10;
     const yM = yMax + yMax / 10;
 
-    const x = d3
-      .scaleLinear()
-      .domain([0, xM])
-      .range([0, width]);
-
-    const y = d3
-      .scaleLinear()
-      .domain([0, yM])
-      .range([height, 0]);
-
     const points = [
       [0, exp2y(res.m, res.b, 0)],
       [exp2x(res.m, res.b, yM), yM]
@@ -66,6 +56,16 @@ export default class Statistics extends React.Component<
       [0, twopos2y(points[0], points[1], 0)],
       [xM, twopos2y(points[0], points[1], xM)]
     ];
+
+    const x = d3
+      .scaleLinear()
+      .domain([0, xM])
+      .range([0, width]);
+
+    const y = d3
+      .scaleLinear()
+      .domain([0, yM])
+      .range([height, 0]);
 
     console.log({ pos });
 
@@ -94,14 +94,8 @@ export default class Statistics extends React.Component<
               d={
                 d3
                   .line()
-                  .x((d: any) => {
-                    console.log("x", x(d[0]));
-                    return x(d[0]);
-                  })
-                  .y((d: any) => {
-                    console.log("y", y(d[1]));
-                    return y(d[1]);
-                  })(pos as any) as any
+                  .x((d: any) => x(d[0]))
+                  .y((d: any) => y(d[1]))(pos as any) as any
               }
               fill="none"
             />
