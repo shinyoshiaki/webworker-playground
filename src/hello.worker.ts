@@ -7,6 +7,6 @@ self.addEventListener("message", event => {
   let initial = event.data;
   setInterval(() => {
     console.log("count", initial);
-    self.postMessage(initial++);
+    (self as any).postMessage(initial++);
   }, 1000);
 });
