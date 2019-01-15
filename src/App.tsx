@@ -26,13 +26,11 @@ class App extends Component<{}, { input?: number[][] }> {
   render() {
     return (
       <div style={{ width: "100%", height: "100vh" }}>
-        some
         <MeasureWrap
           target={(a, b) => (
             <Statistics input={this.state.input} width={a} height={b} />
           )}
         />
-        some
       </div>
     );
   }

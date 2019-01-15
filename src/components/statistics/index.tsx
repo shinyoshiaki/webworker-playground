@@ -15,7 +15,7 @@ export default class Statistics extends React.Component<
   Props,
   { res?: { m: number; b: number } }
 > {
-  worker = new (Worker as any)();
+  worker = new Worker();
   constructor(props: Props) {
     super(props);
     this.state = { res: undefined };
@@ -33,7 +33,7 @@ export default class Statistics extends React.Component<
   render() {
     const { width, height, input } = this.props;
     const { res } = this.state;
-    if (!input || !res) return <div />;
+    if (!input) return <div />;
 
     const inputX = input.map(item => item[0]);
     const inputY = input.map(item => item[1]);
@@ -42,20 +42,6 @@ export default class Statistics extends React.Component<
     const yMax = Math.max(...inputY);
     const xM = xMax + xMax / 10;
     const yM = yMax + yMax / 10;
-
-    const points = [
-      [0, exp2y(res.m, res.b, 0)],
-      [exp2x(res.m, res.b, yM), yM]
-    ].map(item => {
-      return { x: item[0], y: item[1] };
-    });
-
-    console.log({ points });
-
-    const pos = [
-      [0, twopos2y(points[0], points[1], 0)],
-      [xM, twopos2y(points[0], points[1], xM)]
-    ];
 
     const x = d3
       .scaleLinear()
@@ -67,7 +53,16 @@ export default class Statistics extends React.Component<
       .domain([0, yM])
       .range([height, 0]);
 
-    console.log({ pos });
+    const points =
+      res &&
+      [[0, exp2y(res.m, res.b, 0)], [exp2x(res.m, res.b, yM), yM]].map(item => {
+        return { x: item[0], y: item[1] };
+      });
+
+    const pos = points && [
+      [0, twopos2y(points[0], points[1], 0)],
+      [xM, twopos2y(points[0], points[1], xM)]
+    ];
 
     return (
       <svg className="line-chart" width={width} height={height}>
@@ -87,19 +82,21 @@ export default class Statistics extends React.Component<
               <circle r={5} cx={x(item[0])} cy={y(item[1])} fill="black" />
             </g>
           ))}
-          <g className="graph">
-            <path
-              className="line"
-              style={{ stroke: "black" }}
-              d={
-                d3
-                  .line()
-                  .x((d: any) => x(d[0]))
-                  .y((d: any) => y(d[1]))(pos as any) as any
-              }
-              fill="none"
-            />
-          </g>
+          {res && (
+            <g className="graph">
+              <path
+                className="line"
+                style={{ stroke: "black" }}
+                d={
+                  d3
+                    .line()
+                    .x((d: any) => x(d[0]))
+                    .y((d: any) => y(d[1]))(pos as any) as any
+                }
+                fill="none"
+              />
+            </g>
+          )}
         </g>
       </svg>
     );
