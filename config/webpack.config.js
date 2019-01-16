@@ -316,7 +316,7 @@ module.exports = function(webpackEnv) {
             // smaller than specified limit in bytes as data URLs to avoid requests.
             // A missing `test` is equivalent to a match.
             {
-              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.txt$/],
               loader: require.resolve("url-loader"),
               options: {
                 limit: 10000,
@@ -470,10 +470,6 @@ module.exports = function(webpackEnv) {
             loader: "worker-loader",
             options: { inline: true, publicPath: "/scripts/workers/" }
           }
-        },
-        {
-          test: /\.txt$/,
-          use: "raw-loader"
         }
       ]
     },
