@@ -1,16 +1,35 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import * as d3 from "d3";
-import Component from ".";
-const csv = require("./input.txt");
-
 import MeasureWrap from "../../utill/fit";
 import ImportCss from "../../styles/index";
-
+import StatisticsView from "./view";
+const csv = require("./input.txt");
+console.log({ csv });
 ImportCss();
 
-console.log({ csv });
+class LoadData extends React.Component<{}, { input?: number[][] }> {
+  state = { input: [] };
+  async componentDidMount() {
+    const arr = csv.split("\n");
+    console.log({ arr });
+    const input: number[][] = arr.map((item: any) =>
+      item.split(",").map((num: any) => parseInt(num))
+    );
+    this.setState({ input });
+  }
+  render() {
+    return (
+      <div style={{ width: "100%", height: "100vh" }}>
+        <MeasureWrap
+          target={(a, b) => (
+            <StatisticsView input={this.state.input} width={a} height={b} />
+          )}
+        />
+      </div>
+    );
+  }
+}
 
-storiesOf("line", module).add("normal1", () => (
-  <div style={{ width: "100%", height: "100vh" }} />
-));
+storiesOf("components", module).add("statistics", () => {
+  return <LoadData />;
+});
